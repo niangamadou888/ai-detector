@@ -32,15 +32,62 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "2907837670";
+    const serviceWorkerVersion = "1847112537";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer=""></script>
   <link rel="stylesheet" type="text/css" href="splash/style.css">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
   <script src="splash/splash.js"></script>
+  <style>
+    .content-section {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .section-title {
+      color: #2c3e50;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .section-subtitle {
+      color: #34495e;
+      font-size: 1.8em;
+      margin: 15px 0;
+    }
+    
+    .about-text {
+      line-height: 1.6;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    .faq-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+    }
+    
+    .faq-question {
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    
+    .faq-answer {
+      color: #555;
+      line-height: 1.5;
+    }
+  </style>
 </head>
-<body>  <picture id="splash">
+<body>
+  
+  <picture id="splash">
       <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
       <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
       <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
@@ -59,6 +106,4 @@
       });
     });
   </script>
-
-
 </body></html>
