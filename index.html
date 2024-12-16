@@ -1,109 +1,194 @@
-<!DOCTYPE html><html><head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="ai_detector">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <title>AI Detector</title>
-  <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "1847112537";
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer=""></script>
-  <link rel="stylesheet" type="text/css" href="splash/style.css">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-  <script src="splash/splash.js"></script>
-  <style>
-    .content-section {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-    }
-    
-    .section-title {
-      color: #2c3e50;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    
-    .section-subtitle {
-      color: #34495e;
-      font-size: 1.8em;
-      margin: 15px 0;
-    }
-    
-    .about-text {
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    
-    .faq-item {
-      margin-bottom: 20px;
-      padding: 15px;
-      background-color: #f8f9fa;
-      border-radius: 5px;
-    }
-    
-    .faq-question {
-      font-weight: bold;
-      color: #2c3e50;
-      margin-bottom: 10px;
-    }
-    
-    .faq-answer {
-      color: #555;
-      line-height: 1.5;
-    }
-  </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENSORAI - AI Content Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-  
-  <picture id="splash">
-      <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
-      <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
-      <img class="center" aria-hidden="true" src="splash/img/light-1x.png" alt="">
-  </picture>  
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
-        return appRunner.runApp();
-      });
-    });
-  </script>
-</body></html>
+    <div class="particles-container" id="particles-js"></div>
+    
+    <nav>
+        <div class="logo">CENSORAI</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>AI Content Detector</h1>
+            <p>Think about this. You have stumbled upon some shocking information in an article and shared it on social media. You later found out that the information was false. And think about it, what? You've seen the worst thing- it's AI content.</p>
+            <p>Well, you're not alone. As per a Forbes survey, <a href="https://www.forbes.com/advisor/business/artificial-intelligence-consumer-sentiment/">76%</a> of respondents are concerned about misleading information from AI content spreading across the internet. So, how can you face it? </p>
+            <p>Try our free AI Detector to identify and sort AI-generated text from content. Read on to know how it works and how it is helpful for you.</p>
+        </section>
+
+        <section class="detector-container">
+            <div class="input-container">
+                <textarea id="content-input" placeholder="Paste your text here to analyze..."></textarea>
+                <button id="detect-btn" class="gradient-btn">
+                    <i class="fas fa-search"></i>
+                    Detect AI Content
+                </button>
+            </div>
+
+            <div class="result-container" style="display: none;">
+                <div class="result-card">
+                    <div class="detection-badge"></div>
+                    <div class="result-content">
+                        <div class="score-circle">
+                            <svg class="progress-ring" width="150" height="150">
+                                <circle class="progress-ring-circle" stroke="#4a90e2" stroke-width="8" fill="transparent" r="65" cx="75" cy="75"/>
+                            </svg>
+                            <div class="score-content">
+                                <div class="score-value">0%</div>
+                                <div class="score-label">AI Probability</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing content...</p>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2>Key Features</h2>
+            <p style="margin-top: 20px;">Many AI detector tools are emerging in the post-GPT era with a lot of promise. That's why we have added a cool set of features to stay ahead of the curve. Have a look at them:</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>All-in-one coverage</h3>
+                    <p>We identify content generated by any AI tool such as Chat GPT, Bing AI, Bard, etc. And, that's not the end. We keep on expanding our database. That means when new models and tools are introduced, we will detect them, too.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>High Accuracy</h3>
+                    <p>Tired of getting highly varied results on various GPT detectors? Our AI detector has a low false positivity rate so that you can get the most accurate results. </p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-wrench"></i>
+                    <h3>Free Tool</h3>
+                    <p>Our AI content detection tool is completely free to use. You need not enter any credit card details or sign up for spammy newsletters. Just paste the content and see the results. That's all. We are one of the few <a href="https://aiforeveryone.org/ai-category/ai-detector">completely free AI content detectors</a> out there.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-square-poll-horizontal"></i>
+                    <h3>Instant Results</h3>
+                    <p>You don't have to waste your time by entering the content and then opening another tab to wait for the results. Our tool is designed to be super-speedy. It analyzes your text with NLP and cross-checks it with a tremendous volume of trained data to provide a result. The best part is that all these processes take place within a split second.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <h3>Detect Mixed AI Content</h3>
+                    <p>One of the smartest ways to avoid AI content detection is by just editing the text manually. However, such hacks won't work with our tool. Our AI content detector not only identifies AI text but checks it out for humanisation. If it doesn't find that human touch in the content it will flag red no matter how much edit you have done.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Uncompromised security</h3>
+                    <p>You don't need to worry about any data manipulations or transfers. Our AI detector is <a href="https://gdpr-info.eu/">GDPR</a> compliant, and we automatically delete the text after generating the results.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About CENSORAI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>What is an AI Content Detector?</h3>
+                    <p>AI content detector is a tool that helps you identify content created by using Artificial Intelligence from a given text. Our AI content detector is trained with tremendous data from AI engines. It uses Natural Language Processing(NLP) technology to analyze the text. Publishers, as well as others like editors, marketing managers, and examiners, can use it to verify whether the content is original or not. </p>
+                    
+                    <h3>Why use an AI detector?</h3>
+                    <p>People searched for AI content <a href="https://mspoweruser.com/ai-content-statistics/">nine times</a> more since February 2022, as AI tools became more accessible. However, the widespread use of AI content generation also raised many concerns. Thousands of tech leaders including <a href="https://fortune.com/2023/03/29/elon-musk-apple-steve-wozniak-over-1100-sign-open-letter-6-month-ban-creating-powerful-ai/">Elon Musk and Steve Wozniak</a> sent an open petition letter to stop AI experiments. 
+                        Considering these risks, it is better to have tools that can identify AI content. Here are some reasons to choose an AI content detector.
+                        </p>
+                        <h4>1. Verify the authenticity</h4>
+                        <p>AI-generated content often tends to be loaded with false information. Therefore, it is wise to verify the source and authenticity of the content before you trust it. Considering the early example, you can paste the article that claims shocking information to an AI detector. Share the information only if the tool confirms that it is human-generated content.</p>
+                        <h4>2. Avoid plagiarism</h4>
+                        <p>Keep in mind that even the most prominent AI tools are trained with data from search engines including blogs, academic papers, etc. from others. The chances of plagiarism in AI content are high. Times has even sued Open AI for generating <a href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">New York Times</a> articles verbatim without citing. </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can your AI detect the tool from which the content was generated?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No. AI tools are often trained with the same language models and data. That means the same text can be generated from different tools. So, it's not practically possible to detect the specific tool.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is there a text limit for the AI detector tool?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. There's a word limit of 4000 per each run to ensure the best performance. You can split up the content into different parts and check it in each run. There are no limitations as to how many times you can use the detector.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you detect mixed text of human and AI content?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our AI detector is trained with human-written as well as AI-generated texts. So, this tool can identify any text that does not have a human touch and notifies you of any mixed content along with a percentage break-up.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What percentage should I look for?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It is generally recommended to aim for less than 20% AI-generated content in any given text, although ideally, the percentage should be 0. If the percentage of AI-generated content is between 20 and 50, it is likely that the text was partially or fully generated by AI. If the percentage exceeds 50%, then there is a high chance that the entire text was generated by AI. </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Will my text be available online, if I check through the AI detection tool?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, we totally value your privacy. We destroy your input text as soon as the results are generated. We do not store it or publish it anywhere. </p>
+                    </div>
+                </div>
+                <h2 style="margin-left: 300px; margin-top: 20px; margin-bottom: 20px;">Final Words</h2>
+                <p>As Daniela Rus, the director of MIT’s AI laboratory once said: “Dig into every industry, and you’ll find AI changing the nature of work.” And, you need a strong shield to protect yourself from the harmful effects of AI technology. Modern problems require modern solutions. <br><br>
+                    That's what our AI content detector is. Try it out for free and catch the AI content!
+                    </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">CENSORAI</div>
+            <p>&copy; 2024 CENSORAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="particles-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
