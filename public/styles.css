@@ -80,12 +80,56 @@ a {
     transition: all 0.3s ease;
 }
 
+ul {
+    list-style-type: none; /* Removes default bullets */
+    margin: 1rem 0;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    transition: background 0.3s ease, transform 0.2s;
+    position: relative;
+}
+
+ul li:hover {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    transform: translateY(-2px);
+}
+
+ul li .icon {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+ul li:hover .icon {
+    color: #fff; /* Optional hover color for icons */
+}
+
+ul li span {
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+ul li:hover span {
+    color: #fff; /* Optional hover color for text */
+}
+
+
 .nav-links a:hover, 
 a:hover {
     text-decoration: none;
 }
 
-.about-text h3, 
+.about-text h2, 
 .about-text h4 {
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
@@ -127,7 +171,6 @@ main {
 
 .hero p {
     font-size: 1rem;
-    opacity: 0.8;
     max-width: 1000px;
     margin: 0 auto;
 }
