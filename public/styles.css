@@ -637,6 +637,56 @@ footer {
     margin-bottom: 1rem;
 }
 
+.footer-links {
+    margin: 1rem 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4CAF50;
+}
+
+.policy-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.policy-content h1 {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.policy-content section {
+    margin: 2rem 0;
+}
+
+.policy-content h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.policy-content ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+}
+
+.policy-content li {
+    margin: 0.5rem 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
@@ -708,5 +758,89 @@ footer {
 @media (max-width: 768px) {
     .features-grid {
         grid-template-columns: 1fr; /* 1 card per row for mobile */
+    }
+}
+
+.how-to-use {
+    padding: 2rem 0;
+}
+
+.how-to-use .gradient-text {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.steps-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.step-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-content {
+    margin-top: 1rem;
+}
+
+.step-content h4 {
+    color: var(--gradient-end);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.step-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step-card {
+        width: 90%;
+        max-width: none;
     }
 }
