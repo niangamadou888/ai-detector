@@ -844,3 +844,15 @@ footer {
         max-width: none;
     }
 }
+
+/* Final Words heading styles */
+.final-words-heading {
+    text-align: center; /* Center on desktop */
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .final-words-heading {
+        text-align: left; /* Left-aligned on mobile */
+    }
+}
